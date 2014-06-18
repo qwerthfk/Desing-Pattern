@@ -1,6 +1,6 @@
 package Composite_Pattern.entryComposite;
 
-/* Entry 클래스
+/* Entry 클래스 
  * - 추상클래스로서 디렉터리 엔트리를 표현,
  * - 하위 클래스인 File 클래스와 Directory 클래스를 만듦.
  */
@@ -16,7 +16,6 @@ public abstract class Entry {
 	public Entry add(Entry entry) throws FileTreatmentException {
 		throw new FileTreatmentException();
 	}
-	
 	// '종류'를 표시하는 메소드
 	public void printList() {
 		printList(""); // 오버로드
