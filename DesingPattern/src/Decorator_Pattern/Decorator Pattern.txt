@@ -1,0 +1,82 @@
+
+* Decorator Pattern 이란?
+ - 스펀지 케이크와 같은 중심이 되는 오브젝트가 있고, 이 오브젝트에
+   장식이 되는 기능을 하나씩 추가하면 좀더 목적에 맞는 오브젝트가 완성된다.
+   이와 같이 오브젝트에 장식을 해 나가는 디자인 패턴을 'Decorator Pattern'이라 한다. 
+   
+   
+ * Decorator Pattern 의 역할
+  
+  - Component 의 역할
+      기능을 추가할 때 핵심이 되는 역할.
+      서두의 케이크에 비교하면 장식하기 전의 스펀지 케이크에 해당.
+      스펀지 케이크의 인터페이스(API)만을 결정
+      (Display 클래스가 이 역할)
+      
+  - ConcreteComponent 의 역할
+      Component 역할의 인스턴스(API)를 구현하고 있는 구체적인 스펀지 케이크.
+      (StringDisplay 클래스가 이 역할)
+      
+  - Decorator(장식자)의 역할
+      Component 역할과 동일한 인터페이스(API)를 가지며, 
+      또한 이 Decorator 역할이 장식할 대상이 되는 Component 역할도 가지고 있다.
+      이 역할은 자신이 장식하고 있는 대상을 알고있다.
+      (Border 클래스가 이 역할)
+      
+  - ConcreteDecorator(구체적인 장식자)의 역할
+      구체적인 Decorator의 역할.
+      (SideBorder 클래스와 FullBorder 클래스가 이 역할)
+      
+ 
+    
+   
+ * Decorator Pattern 의 특징
+ 
+  - 이 패턴에서는 장식과 내용물을 동일시하고 있다.
+    예제 프로그램에서 장식을 나타내는 Border 클래스, 내용물을 나타내는 Display 클래스의 
+    하위 클래스로 되어있는 곳에서 동일하게 표현
+    즉 Border, 클래스(및 그 하위 클래스들)는 내용물을 나타내는 Display 클래스와 동일한 인터페이스(API) 가짐.
+    
+    장식을 사용해서 내용물을 감싸도 인터페이스(API)는 전혀 감출 수 없다.
+    (getColumns, getRows, getrowText, show) 
+    ==> 인터페이스(API)가 '투과적'
+    예제 프로그램은 b4와 같이 장식을 많이 사용해서 포함해도 인터페이스(API)는 전혀 바뀌지 않음.
+    
+    인터페이스(API)가 투과적이기 때문에 Composite 패턴과 닮은 재귀적 구조가 등장.
+    즉, 장식을 둘러싸고 있는 '내용물'이 실제로는 다른 '장식'이 되는 구조가 등장.
+    but, 이 두 패턴은 재귀적인 구조를 취하는 점은 유사하지만 목적이 다르다. 
+         Decorator 패턴은 테투리 장식을 중복해서 기능을 추가해 가는 것에 주안점을 둔다.
+         
+    이 패턴에서는 장식도 내용물도 공통의 인터페이스(API)를 갖지만, 장식할수록 기능이 추가된다.
+    이 때, 장식되는 내용물은 수정할 필요 없이 기능을 추가할 수 있다.
+    
+    또한 이 패턴은 '위임'을 사용한다.
+    '장식'에 대한 메소드의 호출은 그 '내용물'에 '위임'된다.
+    예를들면, SideBorder 의 getColumns 메소드 안에서 display.getColumns()을 호출한다.
+    ==> 클래스 사이의 느슨한 결합 (framework의 소스 변경 없이 객체의 관계를 변경한 새로운 객체를 만들 수 있다)
+    
+    이 패턴은 구체적인 장식을 많이 준비해 두면(예를들면, 아이스크림의 바닐라,초콜릿,딸기 등)
+    자유롭게 조합해 새로운 객체를 만들 수 있다.
+    
+   @ Decorater Pattern 의 예
+    Reader reader = new LineNumberReader(
+                          new BufferedReader(
+                                  new InputStreamReader(
+                                          socket.getInputStream()
+                                           }
+                                       }
+                                  };
+    위 코드에서 InputStreamReader 클래스는 getInputStream의 반환값으로 얻어지는 
+    InputStream 클래스의 인스턴스를 기초로 Reader 클래스의 인터페이스(API)를 제공하기 위한 것.
+    (Adapter 패턴)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

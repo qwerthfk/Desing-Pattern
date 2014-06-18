@@ -1,0 +1,35 @@
+
+ * 생성에 관한 패턴
+ - Abstract Factory
+ - Builder
+ - Factory Method
+ - Prototype
+ - Singleton
+ 
+ 
+ * 구조에 관한 패턴
+ - Adapter 
+ - Bridge
+ - Composite
+ - Decorator
+ - Facade
+ - Flyweight
+ - Proxy
+ 
+ 
+ * 행동에 관한 패턴
+ - Chain of Responsibility
+ - Command
+ - Interpreter
+ - Iterator
+ - Mediator
+ - Memento
+ - Observer
+ - State
+ - Strategy
+ - Template Method
+ - Visitor
+ 
+ 
+ 
+ 
